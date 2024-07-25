@@ -57,35 +57,35 @@
 
     </section>
 
-    <div class="clearfix"></div>
-
     <section id="tabla">
 
         <h3>Listado de profesores</h3>
 
         <table>
 
-            <tr id="encabezado">
+            <thead id="encabezado">
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>DNI</th>
                 <th>Asignaturas</th>
                 <th>Documentacion</th>
-            </tr>
+            </thead>
 
-            <tr v-for="(elm,index) in teachers" :key="index">
-                <th>{{elm.teacherName}}</th>
-                <th>{{elm.teacherSurname}}</th>
-                <th>{{elm.dni}}</th>
-                <th>
+            <div class="clearfix"></div>
+
+            <tr id="content" v-for="(elm,index) in teachers" :key="index">
+                <td>{{elm.teacherName}}</td>
+                <td>{{elm.teacherSurname}}</td>
+                <td>{{elm.dni}}</td>
+                <td>
                     <ul>
                         <li v-for="(item,index) in elm.subjects" :key="index">
                             {{item}}
                         </li>
                     </ul>
-                </th>
-                <th v-if="elm.doc">Entregada</th>
-                <th v-else>Falta</th>
+                </td>
+                <td v-if="elm.doc">Entregada</td>
+                <td v-else>Falta</td>
             </tr>
 
         </table>
@@ -162,6 +162,8 @@
 
     /* ESTILOS FORMULARIO */
 
+    /* ESTILOS GENERAL FORMULARIO */
+
     #form{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
@@ -176,6 +178,8 @@
         border-radius: 20px;
         box-shadow: 2px 3px 5px #333;
     }
+
+    /* TITULO FORMULARIO */
 
     #form h3{
         display: block;
@@ -200,6 +204,8 @@
         color: #333;
     }
 
+    /* CAJA DE DATOS FORMULARIO */
+
     #form #data{
         
         background-color: #a19c9c;
@@ -209,12 +215,14 @@
         box-shadow: 1px 1px 3px #333 inset;
     }
 
-    #form #data div{
+    /* CAJAS DE DATOS INTERNAS */
 
+    #form #data div{
         display: block;
         background-color: gray;
-        
     }
+
+    /* LABELS CAJAS DE DATOS INTERNAS */
 
     #form #data div label{
 
@@ -226,6 +234,8 @@
         margin: 10px;
         
     }
+
+     /* INPUTS CAJAS DE DATOS INTERNAS */
 
     #form #data div input{
 
@@ -239,6 +249,14 @@
         border: none;
         
     }
+
+    #form #data div input:hover{
+
+        background-color: #ccc;
+        
+    }
+
+     /* LABELS CAJAS DE DATOS INTERNAS (MATERIAS)*/
 
     #form #data div #materias{
 
@@ -254,6 +272,34 @@
         
     }
 
+    /* LISTADO DE MATERIAS AÑADIDAS*/
+
+    #listado ul{
+        display: block;
+        float:right;
+        list-style: none;
+        width: 100%;
+        margin: 5px;
+        background-color: rgb(236, 236, 236);
+        border-radius: 30px;
+    }
+
+    #listado ul li{
+        display: block;
+        float: left;
+        width: 30%;
+        margin: 5px;
+        background-color: rgb(74, 74, 255);
+        text-decoration: none;
+        border-radius: 100px;
+        border: 1px solid black;
+        box-shadow: 1px 2px 3px #333;
+        color: white;
+        font-size: 14px;
+    }
+
+    /* LABELS CAJAS DE DATOS INTERNAS (CHECK)*/
+
     #form #data div #check{
 
         display: block;
@@ -262,10 +308,8 @@
         height: 20px;
         border-radius: 15px;
         line-height: 20px;
-        margin: 10px;
         border: none;
         margin-right: 5px;
-        
     }
 
     #form #data div h4{
@@ -307,30 +351,9 @@
         cursor: pointer;
     }
 
-    #form #data div input:hover{
-
-        background-color: #ccc;
-        
-    }
-
-    #listado ul{
-        list-style: none;
-        width: 100%;
-        margin: 5px;
-        background-color: rgb(131, 97, 97);
-        border-radius: 30px;
-    }
-
-    #listado ul li{
-        width: 45%;
-        margin: 5px auto;
-        background-color: rgb(95, 23, 23);
-        text-decoration: none;
-        border-radius: 100px;
-
-    }
-
     /* ESTILOS TABLA */
+
+    /* ESTILOS TABLA GENERAL */
 
     #tabla{
         font-family: Arial, Helvetica, sans-serif;
@@ -346,6 +369,8 @@
         border-radius: 20px;
         box-shadow: 2px 3px 5px #333;
     }
+
+    /* ESTILOS TABLA (TITULO)*/
 
     #tabla h3{
         display: block;
@@ -370,17 +395,33 @@
         color: #333;
     }
 
-    #tabla #encabezado {
+    /* ESTILOS TABLA (ENCABEZADO)*/
+
+    #tabla table #encabezado {
         width: 100%;
         font-size: 22px;
         background-color: #333;
         color: white;
     }
 
-    #tabla #encabezado th {
+    #tabla table #encabezado th {
         display: block;
         float: left;
         margin: 10px;
+    }
+
+    #tabla table #content {
+
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        background-color: #ccc;
+        color: black;
+    }
+
+    #tabla table #content td {
+        background-color: #ccc;
+        color: black;
     }
 
 </style>
