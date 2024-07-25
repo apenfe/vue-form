@@ -57,11 +57,11 @@
 
     </section>
 
-    <section id="tabla">
+    <section id="lista">
 
         <h3>Listado de profesores</h3>
 
-        <table>
+        <table id="tabla">
 
             <thead id="encabezado">
                 <th>Nombre</th>
@@ -78,7 +78,7 @@
                 <td>{{elm.teacherSurname}}</td>
                 <td>{{elm.dni}}</td>
                 <td>
-                    <ul>
+                    <ul id="sublistado">
                         <li v-for="(item,index) in elm.subjects" :key="index">
                             {{item}}
                         </li>
@@ -355,11 +355,11 @@
 
     /* ESTILOS TABLA GENERAL */
 
-    #tabla{
+    #lista{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         height: auto;
-        width: 50%;
+        width: 65%;
         background-color: #ccc;
         text-align: center;
         margin: 10px auto;
@@ -370,9 +370,14 @@
         box-shadow: 2px 3px 5px #333;
     }
 
+    #tabla{
+        border-collapse: collapse;
+        width: 100%;
+    }
+
     /* ESTILOS TABLA (TITULO)*/
 
-    #tabla h3{
+    #lista h3{
         display: block;
         font-size: 20px;
         height: 25px;
@@ -387,7 +392,7 @@
         transition: all 300ms;
     }
 
-    #tabla h3:hover{
+    #lista h3:hover{
         font-size: 22px;
         border: 1px solid black;
         border-radius: 10px;
@@ -397,31 +402,55 @@
 
     /* ESTILOS TABLA (ENCABEZADO)*/
 
-    #tabla table #encabezado {
+    #lista #tabla #encabezado {
+        display: block;
+        float: left;
         width: 100%;
-        font-size: 22px;
+        font-size: 20px;
         background-color: #333;
         color: white;
     }
 
-    #tabla table #encabezado th {
+    #lista #tabla #encabezado th {
+        display: inline-block;
+        width: 20%;
+    }
+
+    /* ESTILOS TABLA (CONTENIDO)*/
+
+    #lista #tabla #content{
+
         display: block;
         float: left;
-        margin: 10px;
-    }
-
-    #tabla table #content {
-
-        display: block;
         width: 100%;
         font-size: 20px;
-        background-color: #ccc;
-        color: black;
+        background-color: #5e5e5e;
+        color: white;
     }
 
-    #tabla table #content td {
-        background-color: #ccc;
-        color: black;
+    #lista #tabla #content td {
+    
+        display: inline-block;
+        width: 20%;
+    }
+
+    #lista #tabla #content td #sublistado{
+        text-decoration: none;
+        list-style: none;
+    }
+
+    #lista #tabla #content td #sublistado li{
+        display: block;
+        float: left;
+        width: 30%;
+        margin: 5px;
+        background-color: rgb(74, 74, 255);
+        text-decoration: none;
+        border-radius: 100px;
+        border: 1px solid black;
+        box-shadow: 1px 2px 3px #333;
+        color: white;
+        font-size: 14px;
     }
 
 </style>
