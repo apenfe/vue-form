@@ -38,7 +38,10 @@
             <div id="listado">
                 <ul>
                     <li v-for="(elm,index) in teacher.subjects" :key="index">
-                        <h4>{{elm}}</h4><button id="deleteSubject" @click="deleteSubject(elm)">X</button>
+                        <div id="element">
+                            <h4>{{elm}}</h4>
+                            <button id="deleteSubject" @click="deleteSubject(elm)">X</button>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -170,6 +173,16 @@
         clear: both;
     }
 
+    #deleteSubject{
+        width: 5px;
+        height: 5px;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        display: block;
+        float: left;
+    }
+
     /* ESTILOS FORMULARIO */
 
     /* ESTILOS GENERAL FORMULARIO */
@@ -294,10 +307,11 @@
         border-radius: 30px;
     }
 
-    #listado ul li{
+    #listado ul li #element{
         display: block;
         float: left;
         width: 30%;
+        height: 30px;
         margin: 5px;
         background-color: rgb(74, 74, 255);
         text-decoration: none;
@@ -306,7 +320,22 @@
         box-shadow: 1px 2px 3px #333;
         color: white;
         font-size: 14px;
+        position: relative;
     }
+
+    #listado ul li #element #deleteSubject{ /* h4 */
+        position: relative; /* Posición relativa */
+        top: -45px; /* Se mueve 20px hacia abajo desde su posición original */
+        left: 70px; /* Se mueve 30px hacia la derecha desde su posición original */
+        position: relative;
+    }
+
+    #listado ul li #element #h4{ /* h4 */
+        display: block;
+        margin-left: 30px;
+    }
+
+
 
     /* LABELS CAJAS DE DATOS INTERNAS (CHECK)*/
 
