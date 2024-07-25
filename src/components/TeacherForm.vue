@@ -11,22 +11,30 @@
                 <input type="text" v-model="teacher.teacherName">
             </div>
     
+            <div class="clearfix"></div>
+        
             <div>
                 <label>Apellidos:</label>
                 <input type="text" v-model="teacher.teacherSurname">
             </div>
     
+            <div class="clearfix"></div>
+
             <div>
                 <label>DNI:</label>
                 <input type="text" v-model="teacher.dni">
             </div>
     
+            <div class="clearfix"></div>
+
             <div>
                 <label>Materias:</label>
-                <input type="text" v-model="subject" >
+                <input id="materias" type="text" v-model="subject" >
                 <button @click="handleSubject()">Añadir Materia</button>
             </div>
     
+            <div class="clearfix"></div>
+
             <div id="listado">
                 <ul>
                     <li v-for="(elm,index) in teacher.subjects" :key="index">
@@ -35,10 +43,15 @@
                 </ul>
             </div>
     
+            <div class="clearfix"></div>
+
             <div>
-                <input type="checkbox" v-model="teacher.doc"> Documentacion entregada.
-                <button @click="handleAddTeacher()">Añadir Profesor</button>
+                <input id="check" type="checkbox" v-model="teacher.doc"> 
+                <h4>Documentacion entregada.</h4>
+                <button id="addteacher" @click="handleAddTeacher()">Añadir Profesor</button>
             </div>
+
+            <div class="clearfix"></div>
 
         </div>
 
@@ -52,7 +65,7 @@
 
         <table>
 
-            <tr>
+            <tr id="encabezado">
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>DNI</th>
@@ -196,6 +209,110 @@
         box-shadow: 1px 1px 3px #333 inset;
     }
 
+    #form #data div{
+
+        display: block;
+        background-color: gray;
+        
+    }
+
+    #form #data div label{
+
+        display: block;
+        float: left;
+        width: 25%;
+        height: 20px;
+        line-height: 20px;
+        margin: 10px;
+        
+    }
+
+    #form #data div input{
+
+        display: block;
+        float: left;
+        width: 60%;
+        height: 20px;
+        border-radius: 15px;
+        line-height: 20px;
+        margin: 10px;
+        border: none;
+        
+    }
+
+    #form #data div #materias{
+
+        display: block;
+        float: left;
+        width: 30%;
+        height: 20px;
+        border-radius: 15px;
+        line-height: 20px;
+        margin: 10px;
+        border: none;
+        margin-right: 5px;
+        
+    }
+
+    #form #data div #check{
+
+        display: block;
+        float: left;
+        width: 5%;
+        height: 20px;
+        border-radius: 15px;
+        line-height: 20px;
+        margin: 10px;
+        border: none;
+        margin-right: 5px;
+        
+    }
+
+    #form #data div h4{
+
+        display: block;
+        float: left;
+        width: 50%;
+        height: 20px;
+        font-size: 12px;
+        border-radius: 15px;
+        line-height: 20px;
+        margin: 10px;
+    }
+
+    #form #data div #addteacher{
+
+        display: block;
+        float: left;
+        width: 30%;
+        height: 20px;
+        border-radius: 15px;
+        line-height: 20px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        
+    }
+
+    #form #data div button{
+
+        display: block;
+        float: left;
+        width: 25%;
+        height: 20px;
+        border-radius: 15px;
+        line-height: 20px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #form #data div input:hover{
+
+        background-color: #ccc;
+        
+    }
+
     #listado ul{
         list-style: none;
         width: 100%;
@@ -251,6 +368,19 @@
         border-radius: 10px;
         box-shadow: 3px 3px 6px black inset;
         color: #333;
+    }
+
+    #tabla #encabezado {
+        width: 100%;
+        font-size: 22px;
+        background-color: #333;
+        color: white;
+    }
+
+    #tabla #encabezado th {
+        display: block;
+        float: left;
+        margin: 10px;
     }
 
 </style>
