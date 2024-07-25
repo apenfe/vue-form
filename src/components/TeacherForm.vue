@@ -72,6 +72,7 @@
                 <th>DNI</th>
                 <th>Asignaturas</th>
                 <th>Documentacion</th>
+                <th>Tools</th>
             </thead>
 
             <div class="clearfix"></div>
@@ -89,6 +90,7 @@
                 </td>
                 <td v-if="elm.doc">Entregada</td>
                 <td v-else>Falta</td>
+                <td><button id="deleteTeacher" @click="deleteTeacher(index)">Delete</button></td>
             </tr>
 
         </table>
@@ -156,6 +158,16 @@
         
     }
 
+    const deleteTeacher= (ind:number) => {
+
+        let indice = ind;
+
+        if (indice !== -1) {
+            teachers.value.splice(indice, 1);
+        }
+
+    }   
+
 </script>
 
 <style scoped>
@@ -181,6 +193,24 @@
         font-weight: bold;
         display: block;
         float: left;
+    }
+
+    #deleteTeacher{
+        width: 33%;
+        height: 30px;
+        background-color: red;
+        color: white;
+        font-weight: bold;
+        display: block;
+        float: left;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    #deleteTeacher:hover{
+        background-color: rgb(255, 69, 69);
+        border-radius: 25px;
+        box-shadow: 2px 2px 3px #333 inset;
     }
 
     /* ESTILOS FORMULARIO */
@@ -335,8 +365,6 @@
         margin-left: 30px;
     }
 
-
-
     /* LABELS CAJAS DE DATOS INTERNAS (CHECK)*/
 
     #form #data div #check{
@@ -398,7 +426,7 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         height: auto;
-        width: 65%;
+        width: 80%;
         background-color: #ccc;
         text-align: center;
         margin: 10px auto;
@@ -452,7 +480,7 @@
 
     #lista #tabla #encabezado th {
         display: inline-block;
-        width: 20%;
+        width: 15%;
     }
 
     /* ESTILOS TABLA (CONTENIDO)*/
@@ -470,7 +498,7 @@
     #lista #tabla #content td {
     
         display: inline-block;
-        width: 20%;
+        width: 15%;
     }
 
     #lista #tabla #content td #sublistado{
