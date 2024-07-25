@@ -38,7 +38,7 @@
             <div id="listado">
                 <ul>
                     <li v-for="(elm,index) in teacher.subjects" :key="index">
-                        <h4>{{elm}}</h4>
+                        <h4>{{elm}}</h4><button id="deleteSubject" @click="deleteSubject(elm)">X</button>
                     </li>
                 </ul>
             </div>
@@ -141,6 +141,16 @@
         teacher.value.dni = "";
         teacher.value.subjects = [];
         teacher.value.doc = false;
+    }
+
+    const deleteSubject = (elm:string) => {
+
+        let indice = teacher.value.subjects.indexOf(elm);
+
+        if (indice !== -1) {
+            teacher.value.subjects.splice(indice, 1);
+        }
+        
     }
 
 </script>
